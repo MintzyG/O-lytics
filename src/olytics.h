@@ -7,7 +7,7 @@ typedef OlyticsInstance OlyticsInstance;
 struct OlyticsInstance {
   Obase database;
 
-  int (functions[10])(void* ptr, int* cmp, int* swp, int* ops);
+  void* (functions[10])(void* ptr, int* cmp, int* swp, int* ops);
 
   Probe* (*NewProbe)();
   void* (*OlyticsWrapper)();
