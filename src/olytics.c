@@ -15,34 +15,6 @@ Probe* NewProbe() {
 
 }
 
-Probe* ResizeDatabase() {
-
-}
-
-Probe* AddProbe() {
-
-}
-
-void RemoveProbe(Probe *probe) {
-
-}
-
-clock_t ProbeStartClock(Probe *probe) {
-
-}
-
-clock_t ProbeEndClock(Probe *probe) {
-
-}
-
-clock_t ExecutionTime(Probe *probe) {
-
-}
-
-void RegisterData(Probe *probe, int ops, int comps, int swaps) {
-
-}
-
 Obase* CreateDB() {
   Obase* db = (&Obase) {
     .database = (Probe*)calloc(1, sizeof(Probe)),
