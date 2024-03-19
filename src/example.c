@@ -7,17 +7,16 @@
 
 int main() {
   OlyticsInstance O = CreateInstance();
-  
+
   // Olytics loop empty needs a function list
   Olytics.Functions = {Bubble, Selection, Insertion};
   OlyticsLoop();
 
   // Olytics loop full gets all functions from the get go
   OlyticsLoop(
-    Bubble, 
-    Selection, 
-    Insertion, 
-    
+    Bubble,
+    Selection,
+    Insertion,
     // Three modes "T"extual, "V"isual
     "V"
   );
