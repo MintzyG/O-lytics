@@ -12,3 +12,7 @@ struct Obase {
   Probe* (*AddProbe)();
   void (*RemoveProbe)(Probe* probe);
 };
+
+Probe* ResizeDatabase();
+Probe* AddProbe();
+void RemoveProbe(Probe* probe);

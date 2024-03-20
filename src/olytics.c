@@ -1,19 +1,12 @@
 #include "olytics.h"
 #include "obase.h"
-#include "probe.h"
+#include "_probe.h"
 #include <stdlib.h>
 #include <time.h>
 
-OlyticsInstance* CreateInstance() {
-  OlyticsInstance* instance = (&OlyticsInstance) {
-    .database = CreateDB(),
-    .NewProbe = NewProbe
-  };
-  return instance;
-}
-
 Probe* NewProbe() {
-  Probe* p = (&Probe) {
+  Probe* p = &(Probe) {
+    .nome = "juan",
     .comparissons = 0,
     .operations = 0,
     .swaps = 0,
@@ -29,7 +22,7 @@ Probe* NewProbe() {
 }
 
 Obase* CreateDB() {
-  Obase* db = (&Obase) {
+  Obase* db = &(Obase) {
     .database = (Probe*)calloc(1, sizeof(Probe)),
     .ResizeDatabase = ResizeDatabase,
     .AddProbe = AddProbe,
@@ -38,4 +31,12 @@ Obase* CreateDB() {
     .size = 1
   };
   return db;
+}
+
+OlyticsInstance* CreateInstance() {
+  OlyticsInstance* instance = &(OlyticsInstance) {
+//    .obase = CreateDB(),
+    .NewProbe = NewProbe
+  };
+  return instance;
 }
