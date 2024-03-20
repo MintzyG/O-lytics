@@ -8,6 +8,6 @@ Probe* AddProbe() {
 
 }
 
-void RemoveProbe(Probe *probe) {
+void RemoveProbe(__attribute__((unused))Probe *probe) {
 
 }

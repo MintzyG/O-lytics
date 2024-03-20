@@ -2,6 +2,6 @@
 
 int main() {
 
-  OlyticsInstance O = CreateInstance();
+  __attribute__((unused))OlyticsInstance O = CreateInstance();
   return 0;
 }
