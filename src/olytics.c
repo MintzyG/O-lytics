@@ -5,7 +5,8 @@
 #include <time.h>
 
 Probe* NewProbe() {
-  Probe* p = &(Probe) {
+  Probe* p = (Probe*)calloc(1, sizeof(Probe));
+  *p = (Probe) {
     .nome = "juan",
     .comparissons = 0,
     .operations = 0,
@@ -21,22 +22,28 @@ Probe* NewProbe() {
   return p;
 }
 
+// Why does initializing to a pointer using compound literals doens't initialize some variables?
+// So I have to resort to calloc then use compound.
+// Can compound literals even be used to allocate memory?
 Obase* CreateDB() {
-  Obase* db = &(Obase) {
+  Obase* db = (Obase*)calloc(1, sizeof(Obase));
+  *db = (Obase) {
     .database = (Probe*)calloc(1, sizeof(Probe)),
     .ResizeDatabase = ResizeDatabase,
     .AddProbe = AddProbe,
     .RemoveProbe = RemoveProbe,
     .capacity = 1,
-    .size = 1
+    .size = 1,
   };
   return db;
 }
 
 OlyticsInstance* CreateInstance() {
-  OlyticsInstance* instance = &(OlyticsInstance) {
-//    .obase = CreateDB(),
-    .NewProbe = NewProbe
+  OlyticsInstance* O = (OlyticsInstance*)calloc(1, sizeof(OlyticsInstance));
+  *O = (OlyticsInstance) {
+    .id = 1,
+    .NewProbe = NewProbe,
+    .obase = CreateDB(),
   };
-  return instance;
+  return O;
 }

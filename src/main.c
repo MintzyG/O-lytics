@@ -4,10 +4,10 @@
 
 int main() {
   OlyticsInstance* O = CreateInstance();
-  Probe* P;
-  P = O->NewProbe();
-  
-  printf("%s\n", P->nome);
+  Probe* P = O->NewProbe();
+  O->obase->AddProbe(O->obase->database, P);
+  O->obase->database[0].nome = "mark";
+  printf("%s", O->obase->database[0].nome);
 
   return 0;
 }
