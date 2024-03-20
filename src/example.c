@@ -22,10 +22,13 @@ int* data() {
   return ptr;
 }
 
-// A single puzzle remains, how to get the lenght of a pointer, or will we have to implement something to pass the length?
+// A single puzzle remains, what if I need multiple pieces of data for the function to work?
+// I could just adapt the function to receive a single struct Package and then unpack it inside
+// Or could take a look at c11 overloading like structure using _Generic and macros
+// Or perhaps use variadic arguments to feed the function 
 int main() {
   OlyticsInstance* O = CreateInstance();
-  int* ptr = (int*)O->OlyticsWrapper(O, bubble, data()); // bubble is what I want to test and Data is the data passed to oneUp
+  int* ptr = (int*)O->OlyticsWrapper(O, bubble, data()); // bubble is what I want to test and Data is the data passed to bubble
   printData(ptr); // Not needed, just here to show you can keep you data after benchmarking
   O->ProbeDataByIndex(O, 0); // Gets the probe data at index requested from obase database
   return 0;
