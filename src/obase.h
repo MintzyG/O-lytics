@@ -1,6 +1,8 @@
+#pragma once
+
 #include "probe.h"
 
-typdef Obase Obase;
+typedef struct Obase Obase;
 
 struct Obase {
   Probe* database;

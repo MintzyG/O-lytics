@@ -1,14 +1,18 @@
-typedef Probe Probe;
+#pragma once
 
-  struct Probe {
-    int operations, comparissons, swaps;
-    clock_t totalClock, startClock, endClock;
+#include <time.h>
 
-    int id;
+typedef struct Probe Probe;
 
-  clock_t (*ProbeStartClock)(Probe *self);
-  clock_t (*ProbeEndClock)(Probe *self);
-  clock_t (*ExecutionTime)(Probe *self);
+struct Probe {
+    __attribute__((unused))int operations, comparissons, swaps;
+    __attribute__((unused))clock_t totalClock, startClock, endClock;
+
+    __attribute__((unused))int id;
+
+    __attribute__((unused))clock_t (*ProbeStartClock)(Probe *self);
+    __attribute__((unused))clock_t (*ProbeEndClock)(Probe *self);
+    __attribute__((unused))clock_t (*ExecutionTime)(Probe *self);
 
   void (*RegisterData)(Probe *self, int operations, int comparissons, int swaps);
 };
