@@ -4,9 +4,14 @@ Probe* ResizeDatabase() {
 
 }
 
-Probe* AddProbe(Probe* database, Probe* probe) {
-  database[0] = (*probe);
+Probe* AddProbe(Obase* o, Probe* probe) {
+  if (o->capacity >= 1) {
+    o->database[0] = (*probe);
+    o->capacity -= 1;
+    return probe;
+  }
   return probe;
+  // ResizeDatabase();
 }
 
 void RemoveProbe(__attribute__((unused))Probe *probe) {

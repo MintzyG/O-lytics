@@ -7,17 +7,18 @@
 Probe* NewProbe() {
   Probe* p = (Probe*)calloc(1, sizeof(Probe));
   *p = (Probe) {
-    .nome = "juan",
+    .name = "defaultProbe",
     .comparissons = 0,
     .operations = 0,
     .swaps = 0,
-    .totalClock = 0,
+    .executionTime = 0,
     .endClock = 0,
     .startClock = 0,
     .ProbeStartClock = ProbeStartClock,
     .ProbeEndClock = ProbeEndClock,
     .ExecutionTime = ExecutionTime,
-    .RegisterData = RegisterData
+    .RegisterData = RegisterData,
+    .ProbeData = ProbeData,
   }; 
   return p;
 }
@@ -37,6 +38,35 @@ Obase* CreateDB() {
   };
   return db;
 }
+void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int* cmp, int* swp, int* ops), void* data) {
+  Probe* P = O->NewProbe();
+
+  int *cmp, *swp, *ops;
+  cmp = (int*)calloc(1, sizeof(int));
+  swp = (int*)calloc(1, sizeof(int));
+  ops = (int*)calloc(1, sizeof(int));
+
+  P->ProbeStartClock(P);
+
+  void* ptr = function(data, cmp, swp, ops);
+
+  P->ProbeEndClock(P);
+  P->ExecutionTime(P);
+
+  P->RegisterData(P, ops, cmp, swp);
+
+  O->obase->AddProbe(O->obase, P);
+
+  free(cmp);
+  free(swp);
+  free(ops);
+
+  return ptr;
+}
+
+void ProbeDataByIndex(OlyticsInstance* O, int index) { 
+  O->obase->database[index].ProbeData(&O->obase->database[index]);
+}
 
 OlyticsInstance* CreateInstance() {
   OlyticsInstance* O = (OlyticsInstance*)calloc(1, sizeof(OlyticsInstance));
@@ -44,6 +74,8 @@ OlyticsInstance* CreateInstance() {
     .id = 1,
     .NewProbe = NewProbe,
     .obase = CreateDB(),
+    .OlyticsWrapper = OlyticsWrapper,
+    .ProbeDataByIndex = ProbeDataByIndex,
   };
   return O;
 }

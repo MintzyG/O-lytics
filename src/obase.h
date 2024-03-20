@@ -9,7 +9,7 @@ struct Obase {
   int capacity, size;
 
   Probe* (*ResizeDatabase)();
-  Probe* (*AddProbe)();
+  Probe* (*AddProbe)(Obase* o, Probe* probe);
   void (*RemoveProbe)(Probe* probe);
 };
 

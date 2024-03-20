@@ -11,7 +11,8 @@ struct OlyticsInstance {
   Obase* obase;
   // void* (functions[10])(void* ptr, int* cmp, int* swp, int* ops);
   Probe* (*NewProbe)();
-  void* (*OlyticsWrapper)();
+  void* (*OlyticsWrapper)(OlyticsInstance* O,void* (*function)(void* ptr, int* cmp, int* swp, int* ops), void* data);
+  void (*ProbeDataByIndex)(OlyticsInstance* O, int index);
 };
 
 OlyticsInstance* CreateInstance();
