@@ -7,7 +7,6 @@
 Probe* NewProbe() {
   Probe* p = (Probe*)calloc(1, sizeof(Probe));
   *p = (Probe) {
-    .name = "defaultProbe",
     .comparissons = 0,
     .operations = 0,
     .swaps = 0,
@@ -71,7 +70,6 @@ void ProbeDataByIndex(OlyticsInstance* O, int index) {
 OlyticsInstance* CreateInstance() {
   OlyticsInstance* O = (OlyticsInstance*)calloc(1, sizeof(OlyticsInstance));
   *O = (OlyticsInstance) {
-    .id = 1,
     .NewProbe = NewProbe,
     .obase = CreateDB(),
     .OlyticsWrapper = OlyticsWrapper,

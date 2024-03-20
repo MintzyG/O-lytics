@@ -9,9 +9,6 @@ struct Probe {
     clock_t startClock, endClock;
     double executionTime;
 
-    __attribute__((unused))int id;
-    __attribute__((unused))char* name;
-
     clock_t (*ProbeStartClock)(Probe *self);
     clock_t (*ProbeEndClock)(Probe *self);
     double (*ExecutionTime)(Probe *self);

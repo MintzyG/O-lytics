@@ -1,7 +1,8 @@
 #include "obase.h"
+#include "helpers.h"
 
 Probe* ResizeDatabase() {
-
+  Uninplemented(__func__);
 }
 
 Probe* AddProbe(Obase* o, Probe* probe) {
@@ -10,8 +11,8 @@ Probe* AddProbe(Obase* o, Probe* probe) {
     o->capacity -= 1;
     return probe;
   }
+  ResizeDatabase();
   return probe;
-  // ResizeDatabase();
 }
 
 void RemoveProbe(__attribute__((unused))Probe *probe) {
