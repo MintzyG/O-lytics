@@ -1,8 +1,12 @@
 #include "olytics.h"
 #include "obase.h"
 #include "_probe.h"
+#include "helpers.h"
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
 
 Probe* NewProbe() {
   Probe* p = (Probe*)calloc(1, sizeof(Probe));
@@ -37,20 +41,24 @@ Obase* CreateDB() {
   };
   return db;
 }
-void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int* cmp, int* swp, int* ops), void* data) {
+void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, int* cmp, int* swp, int* ops), void* data, int size) {
+  printf("%s: Creating Probe\n", __func__);
   Probe* P = O->NewProbe();
 
+  printf("%s: Allocating data spots\n", __func__);
   int *cmp, *swp, *ops;
   cmp = (int*)calloc(1, sizeof(int));
   swp = (int*)calloc(1, sizeof(int));
   ops = (int*)calloc(1, sizeof(int));
 
+  printf("%s: Starting proccess\n", __func__);
   P->ProbeStartClock(P);
 
-  void* ptr = function(data, cmp, swp, ops);
+  function(data, size, cmp, swp, ops);
 
   P->ProbeEndClock(P);
   P->ExecutionTime(P);
+  printf("%s: Finished proccess\n", __func__);
 
   P->RegisterData(P, ops, cmp, swp);
 
@@ -59,12 +67,32 @@ void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int* cmp, 
   free(cmp);
   free(swp);
   free(ops);
-
-  return ptr;
 }
 
 void ProbeDataByIndex(OlyticsInstance* O, int index) { 
   O->obase->database[index].ProbeData(&O->obase->database[index]);
+}
+
+int* GenerateTestData(int amount, int ceiling) {
+  srand(time(NULL));
+  printf("%s: Generating data\n-------------------\n", __func__);
+  int* ptr = calloc(amount, sizeof(int));
+  if (!ptr) {
+    printf("Couldn't allocate enough memory");
+    exit(1);
+  }
+
+  printf("%s: Test print\n", __func__);
+  for (int i = 0; i < amount; i++) {
+    printf("%d ", ptr[i]);
+  }
+  printf("\n\n");
+
+  printf("%s: Filling ptr with data\n", __func__);
+  for (int i = 0; i < amount; i++) {
+    ptr[i] = rand() % ceiling + 1;
+  }
+  return ptr;
 }
 
 OlyticsInstance* CreateInstance() {
@@ -77,3 +105,5 @@ OlyticsInstance* CreateInstance() {
   };
   return O;
 }
+
+

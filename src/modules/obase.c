@@ -16,5 +16,5 @@ Probe* AddProbe(Obase* o, Probe* probe) {
 }
 
 void RemoveProbe(__attribute__((unused))Probe *probe) {
-
+  Uninplemented(__func__);
 }

@@ -1,0 +1,31 @@
+CMakeFiles/olytics.dir/modules/obase.c.o: \
+  /home/sophia/dev/O-lytics/src/modules/obase.c \
+  /home/sophia/dev/O-lytics/src/modules/obase/obase.h \
+  /home/sophia/dev/O-lytics/src/modules/probe/probe.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/time.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/features.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/features-time64.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/wordsize.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/timesize.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/stdc-predef.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/sys/cdefs.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/long-double.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/gnu/stubs.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/gnu/stubs-64.h \
+  /nix/store/d6ap27impzdj86wzkxdr82fk0zfyrp2b-clang-wrapper-16.0.6/resource-root/include/stddef.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/time.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/typesizes.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/time64.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/clock_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/time_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_tm.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_timespec.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/endian.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/endianness.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/clockid_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/timer_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_itimerspec.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/locale_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__locale_t.h \
+  /home/sophia/dev/O-lytics/src/modules/helpers/helpers.h

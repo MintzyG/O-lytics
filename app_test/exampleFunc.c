@@ -1,5 +1,4 @@
 #include "exampleFunc.h"
-#include<stdio.h>
 #include "string.h"
 
 void swap(int* xp, int* yp)
@@ -9,26 +8,23 @@ void swap(int* xp, int* yp)
     *yp = temp;
 }
 
-void* bubble(void* ptr, int size, int* cmp, int* swp, int* ops) {
-  printf("%s: Started sorting\n", __func__);
+void* bubble(void* ptr, int* cmp, int* swp, int* ops) {
   int* arr = (int*)ptr;
+
+
   int i, j, swapped;
-  for (int i = 0; i < size; i++) {
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
-  for (i = 0; i < size - 1; i++) {
+  for (i = 0; i < 100 - 1; i++) {
     (*ops)++;
     swapped = 0;
 
-    for (j = 0; j < size - i - 1; j++) {
+    for (j = 0; j < 100 - i - 1; j++) {
       (*cmp)++;
 
       if (arr[j] > arr[j + 1]) {
         swap(&arr[j], &arr[j + 1]);
         swapped = 1;
         (*ops)++;
-        (*swp) += 3;
+        (*swp)++;
       }
 
     }
@@ -37,4 +33,6 @@ void* bubble(void* ptr, int size, int* cmp, int* swp, int* ops) {
     if (swapped == 0)
       break;
   }
+
+  return (void*)arr;
 }

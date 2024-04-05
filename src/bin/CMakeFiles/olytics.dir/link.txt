@@ -1,0 +1,1 @@
+/run/current-system/sw/bin/cc CMakeFiles/olytics.dir/example.c.o CMakeFiles/olytics.dir/exampleFunc.c.o CMakeFiles/olytics.dir/modules/helpers.c.o CMakeFiles/olytics.dir/modules/obase.c.o CMakeFiles/olytics.dir/modules/olytics.c.o CMakeFiles/olytics.dir/modules/probe.c.o -o olytics 

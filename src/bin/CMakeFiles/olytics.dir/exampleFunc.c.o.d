@@ -1,0 +1,33 @@
+CMakeFiles/olytics.dir/exampleFunc.c.o: \
+  /home/sophia/dev/O-lytics/src/exampleFunc.c \
+  /home/sophia/dev/O-lytics/src/exampleFunc.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/stdio.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/libc-header-start.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/features.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/features-time64.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/wordsize.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/timesize.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/stdc-predef.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/sys/cdefs.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/long-double.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/gnu/stubs.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/gnu/stubs-64.h \
+  /nix/store/d6ap27impzdj86wzkxdr82fk0zfyrp2b-clang-wrapper-16.0.6/resource-root/include/stddef.h \
+  /nix/store/d6ap27impzdj86wzkxdr82fk0zfyrp2b-clang-wrapper-16.0.6/resource-root/include/stdarg.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/typesizes.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/time64.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__fpos_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__mbstate_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__fpos64_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/cookie_io_functions_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/stdio_lim.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn-common.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/string.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/locale_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__locale_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/strings.h
