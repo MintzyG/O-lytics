@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "probe.h"
 
@@ -32,4 +33,22 @@ void ProbeData(Probe *probe) {
   printf("%d Comparissons were done\n", probe->comparissons);
   printf("%d Swaps were done\n", probe->swaps);
   printf("%d Operations were done\n", probe->operations);
+
+}
+Probe* NewProbe() {
+  Probe* p = (Probe*)calloc(1, sizeof(Probe));
+  *p = (Probe) {
+    .comparissons = 0,
+    .operations = 0,
+    .swaps = 0,
+    .executionTime = 0,
+    .endClock = 0,
+    .startClock = 0,
+    .ProbeStartClock = ProbeStartClock,
+    .ProbeEndClock = ProbeEndClock,
+    .ExecutionTime = ExecutionTime,
+    .RegisterData = RegisterData,
+    .ProbeData = ProbeData,
+  }; 
+  return p;
 }

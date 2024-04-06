@@ -19,4 +19,4 @@ struct Probe {
     void (*ProbeData)(Probe *self);
 };
 
-
+Probe* NewProbe();

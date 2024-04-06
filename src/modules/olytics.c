@@ -1,6 +1,5 @@
 #include "olytics.h"
 #include "obase.h"
-#include "_probe.h"
 #include "helpers.h"
 #include <stdlib.h>
 #include <time.h>
@@ -8,23 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-Probe* NewProbe() {
-  Probe* p = (Probe*)calloc(1, sizeof(Probe));
-  *p = (Probe) {
-    .comparissons = 0,
-    .operations = 0,
-    .swaps = 0,
-    .executionTime = 0,
-    .endClock = 0,
-    .startClock = 0,
-    .ProbeStartClock = ProbeStartClock,
-    .ProbeEndClock = ProbeEndClock,
-    .ExecutionTime = ExecutionTime,
-    .RegisterData = RegisterData,
-    .ProbeData = ProbeData,
-  }; 
-  return p;
-}
+
 
 void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, int* cmp, int* swp, int* ops), void* data, int size) {
   O->logs->Log(O->logs, "Creating Probe", __func__, TRACE);

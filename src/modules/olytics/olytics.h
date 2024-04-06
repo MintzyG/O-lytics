@@ -1,8 +1,7 @@
 #pragma once
 #include <time.h>
 #include "obase.h"
-#include "_probe.h"
-#include "_olytics.h"
+#include "probe.h"
 #include "helpers.h"
 
 typedef struct OlyticsInstance OlyticsInstance;
