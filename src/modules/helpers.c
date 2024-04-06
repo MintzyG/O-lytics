@@ -30,7 +30,10 @@ void SetLevel(oLog* logger, enum LogLevel level) {
 }
 
 void Log(oLog* log, char* message, const char* func, enum LogLevel match) {
-  if ((int)match <= (int)log->log_level) {
+  if (log->log_level == ALL) {
+    char* ptr = calloc(256, 1);
+    printf("[ALL](%s): %s\n", func, message);
+  } else if ((int)match <= (int)log->log_level) {
     char* ptr = calloc(256, 1);
     switch (match) {
       case WARN:

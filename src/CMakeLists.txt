@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 add_executable(olytics example.c exampleFunc.c)
 add_subdirectory(modules)
 
-add_compile_definitions(trace)
+add_compile_definitions(all)
 
 target_include_directories(olytics PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(olytics PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/modules/helpers)

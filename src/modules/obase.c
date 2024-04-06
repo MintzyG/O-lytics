@@ -2,20 +2,41 @@
 #include "helpers.h"
 
 #include <stdlib.h>
+#include <string.h>
 
-Probe* ResizeDatabase() {
-  Uninplemented(__func__);
-  return NULL;
+void ResizeDatabase(Obase* O) {
+  printf("Resizing the DB\n");
+  Probe* tmp = (Probe*)calloc(O->size * 2, sizeof *tmp);
+  memcpy(tmp, O->database, O->size * sizeof *tmp);
+
+  O->database = tmp;
+  printf("Free tmp\n");
+  free(tmp);
+
+  O->size *= 2;
+  printf("New size is %d\n", O->size);
+  O->capacity = O->size/2;
+  printf("New cap is %d\n", O->capacity);
 }
 
 Probe* AddProbe(Obase* O, Probe* probe) {
+  printf("cur cap is %d\n", O->capacity);
   if (O->capacity >= 1) {
-    O->database[0] = (*probe);
-    O->capacity -= 1;
+    for (int i = 0; i < O->size; i++) {
+      if (O->database[i].id == 0) {
+        printf("Found slot at pos %d\n", i);
+        O->database[i] = *probe;
+        O->database[i].id = i + 1;
+    printf("Added probe of id(%d)\n", O->database[i].id);
+        O->capacity -= 1;
+        break;
+      }
+    }
     return probe;
   }
-  ResizeDatabase();
-  return probe;
+
+  ResizeDatabase(O);
+  AddProbe(O, probe);
 }
 
 void RemoveProbe(__attribute__((unused))Probe *probe) {

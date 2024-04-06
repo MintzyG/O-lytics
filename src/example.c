@@ -15,6 +15,7 @@
 // Or perhaps use variadic arguments to feed the function 
 int main(int argc, char** argv) {
 
+  srand(time(NULL));
   OlyticsInstance* O = CreateInstance();
 
   int size = 0, ceiling = 0;
@@ -37,6 +38,8 @@ int main(int argc, char** argv) {
     O->logs->log_level = WARN;
   #elif trace
     O->logs->log_level = TRACE;
+  #elif all
+    O->logs->log_level = ALL;
   #endif
 
   O->logs->Log(O->logs, "Running GTD", __func__, WARN);
@@ -48,7 +51,15 @@ int main(int argc, char** argv) {
   // PrintData(bubbleData, O->dataSize);
   free(bubbleData);
 
+  O->logs->Log(O->logs, "Running OlyticsWrapper for the second time", __func__, WARN);
+  int* bubbleDataTwo = O->GetTestData(O);
+  PrintData(bubbleDataTwo, O->dataSize);
+  O->OlyticsWrapper(O, bubble, bubbleDataTwo, O->dataSize);
+  // PrintData(bubbleData, O->dataSize);
+  free(bubbleDataTwo);
+  
   O->ProbeDataByIndex(O, 0);
+  O->ProbeDataByIndex(O, 1);
   O->logs->CloseLogs(O->logs);
   return 0;
 }

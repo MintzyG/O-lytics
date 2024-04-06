@@ -9,11 +9,11 @@ struct Probe {
     clock_t startClock, endClock;
     double executionTime;
 
-    void* testData;
-
     clock_t (*ProbeStartClock)(Probe *self);
     clock_t (*ProbeEndClock)(Probe *self);
     double (*ExecutionTime)(Probe *self);
+
+    int id;
 
     void (*RegisterData)(Probe *self, int* operations, int* comparissons, int* swaps);
     void (*ProbeData)(Probe *self);

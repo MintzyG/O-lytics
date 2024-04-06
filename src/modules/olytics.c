@@ -28,10 +28,13 @@ void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, 
   P->ExecutionTime(P);
   O->logs->Log(O->logs, "Finished testing", __func__, WARN);
 
+  if (O->logs->log_level == ALL) {
+    printf("\n\n Got data back: \ncmp:%d\nops:%d\nswap:%d\n", *cmp, *ops, *swp);
+  }
+
   O->logs->Log(O->logs, "Registering data", __func__, TRACE);
   P->RegisterData(P, ops, cmp, swp);
 
-  O->logs->Log(O->logs, "Adding probe to DB", __func__, TRACE);
   O->obase->AddProbe(O->obase, P);
 
   O->logs->Log(O->logs, "Freeing data points", __func__, TRACE);
@@ -47,7 +50,6 @@ void ProbeDataByIndex(OlyticsInstance* O, int index) {
 }
 
 void GenerateTestData(OlyticsInstance* O, int amount, int ceiling) {
-  srand(time(NULL));
   O->logs->Log(O->logs, "Allocating test data array", __func__, TRACE);
   int* ptr = calloc(amount, sizeof(int));
   if (!ptr) {
@@ -55,7 +57,7 @@ void GenerateTestData(OlyticsInstance* O, int amount, int ceiling) {
     exit(1);
   }
 
-  if (O->logs->log_level == TRACE) {
+  if (O->logs->log_level == ALL) {
     printf("%s: Following is the empty array:\n", __func__);
       for (int i = 0; i < amount; i++) {
         printf("%d ", ptr[i]);
@@ -63,12 +65,12 @@ void GenerateTestData(OlyticsInstance* O, int amount, int ceiling) {
       printf("\n\n");
   }
 
-  O->logs->Log(O->logs, "Generating test data", __func__, TRACE);
+  O->logs->Log(O->logs, "Generating test data", __func__, ALL);
   for (int i = 0; i < amount; i++) {
     ptr[i] = rand() % ceiling + 1;
   }
 
-  if (O->logs->log_level == TRACE) {
+  if (O->logs->log_level == ALL) {
     printf("%s: Following is the generated data:\n", __func__);
       for (int i = 0; i < amount; i++) {
         printf("%d ", ptr[i]);

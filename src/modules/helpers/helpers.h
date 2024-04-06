@@ -8,7 +8,8 @@ typedef enum LogLevel LogLevel;
 enum LogLevel {
   OFF,
   WARN,
-  TRACE
+  TRACE,
+  ALL
 };
 
 struct oLog {
