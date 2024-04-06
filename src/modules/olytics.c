@@ -41,6 +41,7 @@ Obase* CreateDB() {
   };
   return db;
 }
+
 void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, int* cmp, int* swp, int* ops), void* data, int size) {
   printf("%s: Creating Probe\n", __func__);
   Probe* P = O->NewProbe();

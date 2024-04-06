@@ -5,6 +5,7 @@
 #include "olytics.h"
 #include "probe.h"
 #include "exampleFunc.h"
+#include "helpers.h"
 
 void printData(int* data, int size) {
   for (int i = 0; i < size; i++) {
@@ -20,7 +21,6 @@ void printData(int* data, int size) {
 int main(int argc, char** argv) {
 
   int size = 0, ceiling = 0;
-
   if (argc > 1) {
     for (int i = 1; i < argc; i++) {
       switch (i) {
@@ -34,8 +34,11 @@ int main(int argc, char** argv) {
     }
   }
 
+  oLog* log = InitLog();
+  log->log_level = WARNING;
+
   OlyticsInstance* O = CreateInstance();
-  printf("Calling GTD()\n");
+  log->Log(log, "Running GTD", __func__);
   int* data = GenerateTestData(size, ceiling);
   printData(data, size);
   printf("running the wrapper\n");
@@ -43,5 +46,6 @@ int main(int argc, char** argv) {
   // printf("\n\n\n\n");
   printData(data, size);
   O->ProbeDataByIndex(O, 0);
+  log->CloseLogs(log);
   return 0;
 }

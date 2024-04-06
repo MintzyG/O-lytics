@@ -28,4 +28,17 @@ CMakeFiles/olytics.dir/modules/obase.c.o: \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_itimerspec.h \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/locale_t.h \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__locale_t.h \
-  /home/sophia/dev/O-lytics/src/modules/helpers/helpers.h
+  /home/sophia/dev/O-lytics/src/modules/helpers/helpers.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/stdio.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/libc-header-start.h \
+  /nix/store/d6ap27impzdj86wzkxdr82fk0zfyrp2b-clang-wrapper-16.0.6/resource-root/include/stdarg.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__fpos_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__mbstate_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__fpos64_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_FILE.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/cookie_io_functions_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/stdio_lim.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn-common.h

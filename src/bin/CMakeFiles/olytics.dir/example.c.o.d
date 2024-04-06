@@ -73,4 +73,5 @@ CMakeFiles/olytics.dir/example.c.o: \
   /home/sophia/dev/O-lytics/src/modules/probe/probe.h \
   /home/sophia/dev/O-lytics/src/modules/probe/_probe.h \
   /home/sophia/dev/O-lytics/src/modules/olytics/_olytics.h \
+  /home/sophia/dev/O-lytics/src/modules/helpers/helpers.h \
   /home/sophia/dev/O-lytics/src/exampleFunc.h
