@@ -26,73 +26,79 @@ Probe* NewProbe() {
   return p;
 }
 
-// Why does initializing to a pointer using compound literals doens't initialize some variables?
-// So I have to resort to calloc then use compound.
-// Can compound literals even be used to allocate memory?
-Obase* CreateDB() {
-  Obase* db = (Obase*)calloc(1, sizeof(Obase));
-  *db = (Obase) {
-    .database = (Probe*)calloc(1, sizeof(Probe)),
-    .ResizeDatabase = ResizeDatabase,
-    .AddProbe = AddProbe,
-    .RemoveProbe = RemoveProbe,
-    .capacity = 1,
-    .size = 1,
-  };
-  return db;
-}
-
 void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, int* cmp, int* swp, int* ops), void* data, int size) {
-  printf("%s: Creating Probe\n", __func__);
+  O->logs->Log(O->logs, "Creating Probe", __func__, TRACE);
   Probe* P = O->NewProbe();
 
-  printf("%s: Allocating data spots\n", __func__);
+  O->logs->Log(O->logs, "Creating data points", __func__, TRACE);
   int *cmp, *swp, *ops;
   cmp = (int*)calloc(1, sizeof(int));
   swp = (int*)calloc(1, sizeof(int));
   ops = (int*)calloc(1, sizeof(int));
 
-  printf("%s: Starting proccess\n", __func__);
+  O->logs->Log(O->logs, "Starting testing", __func__, WARN);
   P->ProbeStartClock(P);
 
   function(data, size, cmp, swp, ops);
 
   P->ProbeEndClock(P);
   P->ExecutionTime(P);
-  printf("%s: Finished proccess\n", __func__);
+  O->logs->Log(O->logs, "Finished testing", __func__, WARN);
 
+  O->logs->Log(O->logs, "Registering data", __func__, TRACE);
   P->RegisterData(P, ops, cmp, swp);
 
+  O->logs->Log(O->logs, "Adding probe to DB", __func__, TRACE);
   O->obase->AddProbe(O->obase, P);
 
+  O->logs->Log(O->logs, "Freeing data points", __func__, TRACE);
   free(cmp);
   free(swp);
   free(ops);
+
+  return data;
 }
 
 void ProbeDataByIndex(OlyticsInstance* O, int index) { 
   O->obase->database[index].ProbeData(&O->obase->database[index]);
 }
 
-int* GenerateTestData(int amount, int ceiling) {
+void GenerateTestData(OlyticsInstance* O, int amount, int ceiling) {
   srand(time(NULL));
-  printf("%s: Generating data\n-------------------\n", __func__);
+  O->logs->Log(O->logs, "Allocating test data array", __func__, TRACE);
   int* ptr = calloc(amount, sizeof(int));
   if (!ptr) {
-    printf("Couldn't allocate enough memory");
+    printf("Couldn't allocate enough memory for test data");
     exit(1);
   }
 
-  printf("%s: Test print\n", __func__);
-  for (int i = 0; i < amount; i++) {
-    printf("%d ", ptr[i]);
+  if (O->logs->log_level == TRACE) {
+    printf("%s: Following is the empty array:\n", __func__);
+      for (int i = 0; i < amount; i++) {
+        printf("%d ", ptr[i]);
+      }
+      printf("\n\n");
   }
-  printf("\n\n");
 
-  printf("%s: Filling ptr with data\n", __func__);
+  O->logs->Log(O->logs, "Generating test data", __func__, TRACE);
   for (int i = 0; i < amount; i++) {
     ptr[i] = rand() % ceiling + 1;
   }
+
+  if (O->logs->log_level == TRACE) {
+    printf("%s: Following is the generated data:\n", __func__);
+      for (int i = 0; i < amount; i++) {
+        printf("%d ", ptr[i]);
+      }
+      printf("\n\n");
+  }
+
+  O->testData = ptr;
+}
+
+int* GetTestData(OlyticsInstance* O) {
+  int* ptr = (int*)calloc(O->dataSize, sizeof *ptr);
+  memcpy(ptr, O->testData, O->dataSize * sizeof *ptr);
   return ptr;
 }
 
@@ -103,8 +109,12 @@ OlyticsInstance* CreateInstance() {
     .obase = CreateDB(),
     .OlyticsWrapper = OlyticsWrapper,
     .ProbeDataByIndex = ProbeDataByIndex,
+    .logs = InitLog(),
+    .GenerateTestData = GenerateTestData,
+    .GetTestData = GetTestData,
+    .testData = (int*)calloc(1, 4),
+    .dataSize = 1,
+    .dataCeiling = 1,
   };
   return O;
 }
-
-

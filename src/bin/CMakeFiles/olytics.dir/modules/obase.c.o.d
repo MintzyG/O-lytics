@@ -41,4 +41,25 @@ CMakeFiles/olytics.dir/modules/obase.c.o: \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/cookie_io_functions_t.h \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/stdio_lim.h \
   /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn.h \
-  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn-common.h
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/floatn-common.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/stdlib.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/waitflags.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/waitstatus.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/sys/types.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/stdint-intn.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/endian.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/byteswap.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/uintn-identity.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/sys/select.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/select.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/sigset_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/__sigset_t.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/types/struct_timeval.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/pthreadtypes.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/thread-shared-types.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/pthreadtypes-arch.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/atomic_wide_counter.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/struct_mutex.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/struct_rwlock.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/alloca.h \
+  /nix/store/7yidkgqrcw7hg0n0qik1wwa0hycvwjb9-glibc-2.38-27-dev/include/bits/stdlib-float.h

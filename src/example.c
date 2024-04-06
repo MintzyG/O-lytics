@@ -7,12 +7,7 @@
 #include "exampleFunc.h"
 #include "helpers.h"
 
-void printData(int* data, int size) {
-  for (int i = 0; i < size; i++) {
-    printf("%d ", data[i]);
-  }
-  printf("\n");
-}
+
 
 // A single puzzle remains, what if I need multiple pieces of data for the function to work?
 // I could just adapt the function to receive a single struct Package and then unpack it inside
@@ -20,32 +15,40 @@ void printData(int* data, int size) {
 // Or perhaps use variadic arguments to feed the function 
 int main(int argc, char** argv) {
 
+  OlyticsInstance* O = CreateInstance();
+
   int size = 0, ceiling = 0;
   if (argc > 1) {
     for (int i = 1; i < argc; i++) {
       switch (i) {
         case 1:
-          size = strtoul(argv[1], NULL, 0);
+          O->dataSize = strtoul(argv[1], NULL, 0);
           break;
         case 2:
-          ceiling = strtoul(argv[2], NULL, 0);
+          O->dataCeiling = strtoul(argv[2], NULL, 0);
           break;
       }
     }
   }
 
-  oLog* log = InitLog();
-  log->log_level = WARNING;
+  #ifdef off
+    O->logs->log_level = OFF;
+  #elif warn
+    O->logs->log_level = WARN;
+  #elif trace
+    O->logs->log_level = TRACE;
+  #endif
 
-  OlyticsInstance* O = CreateInstance();
-  log->Log(log, "Running GTD", __func__);
-  int* data = GenerateTestData(size, ceiling);
-  printData(data, size);
-  printf("running the wrapper\n");
-  O->OlyticsWrapper(O, bubble, data, size); 
-  // printf("\n\n\n\n");
-  printData(data, size);
+  O->logs->Log(O->logs, "Running GTD", __func__, WARN);
+  O->GenerateTestData(O, O->dataSize, O->dataCeiling);
+  
+  O->logs->Log(O->logs, "Running OlyticsWrapper", __func__, WARN);
+  int* bubbleData = O->GetTestData(O);
+  O->OlyticsWrapper(O, bubble, bubbleData, O->dataSize);
+  // PrintData(bubbleData, O->dataSize);
+  free(bubbleData);
+
   O->ProbeDataByIndex(O, 0);
-  log->CloseLogs(log);
+  O->logs->CloseLogs(O->logs);
   return 0;
 }

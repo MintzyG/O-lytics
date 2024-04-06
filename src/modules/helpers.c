@@ -11,8 +11,6 @@
 
 struct stat st = {0};
 
-
-
 void Uninplemented(const char* func) {
   errno = ENOSYS;
   printf("%s: %s\n Exiting!!!",func, strerror(errno));
@@ -23,25 +21,32 @@ void SetupLog() {
   if (stat("./logs", &st) == -1) {
     mkdir("./logs", 0700);
   }
+
+  remove("./logs/log.txt");
 }
 
 void SetLevel(oLog* logger, enum LogLevel level) {
   logger->log_level = level;
 }
 
-void Log(oLog* log, char* message, char* func) {
-  char* ptr = calloc(256, 1);
-  switch (log->log_level) {
-    case WARNING:
-      sprintf(ptr, "[WARNING](%s): %s\n", func, message);
-      fprintf(log->file, ptr);
-      break;
-    case TRACE:
-    default:
-    case OFF:
-      break;
+void Log(oLog* log, char* message, const char* func, enum LogLevel match) {
+  if ((int)match <= (int)log->log_level) {
+    char* ptr = calloc(256, 1);
+    switch (match) {
+      case WARN:
+        sprintf(ptr, "[WARN](%s): %s\n", func, message);
+        fprintf(log->file, "%s", ptr);
+        break;
+      case TRACE:
+        sprintf(ptr, "[TRACE](%s): %s\n", func, message);
+        fprintf(log->file, "%s", ptr);
+        break;
+      default:
+      case OFF:
+        break;
+    }
+    free(ptr);
   }
-  free(ptr);
 }
 
 void CloseLogs(oLog* logs) {
@@ -61,4 +66,11 @@ oLog* InitLog(void) {
     .CloseLogs = CloseLogs
   };
   return l;
+}
+
+void PrintData(int* data, int size) {
+  for (int i = 0; i < size; i++) {
+    printf("%d ", data[i]);
+  }
+  printf("\n\n");
 }

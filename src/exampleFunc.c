@@ -10,13 +10,10 @@ void swap(int* xp, int* yp)
 }
 
 void* bubble(void* ptr, int size, int* cmp, int* swp, int* ops) {
-  printf("%s: Started sorting\n", __func__);
+  // printf("%s: Started sorting\n", __func__);
   int* arr = (int*)ptr;
   int i, j, swapped;
-  for (int i = 0; i < size; i++) {
-    printf("%d ", arr[i]);
-  }
-  printf("\n");
+
   for (i = 0; i < size - 1; i++) {
     (*ops)++;
     swapped = 0;
@@ -37,4 +34,6 @@ void* bubble(void* ptr, int size, int* cmp, int* swp, int* ops) {
     if (swapped == 0)
       break;
   }
+
+  return (void*)arr;
 }

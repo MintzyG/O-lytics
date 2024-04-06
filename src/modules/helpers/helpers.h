@@ -7,7 +7,7 @@ typedef enum LogLevel LogLevel;
 
 enum LogLevel {
   OFF,
-  WARNING,
+  WARN,
   TRACE
 };
 
@@ -16,10 +16,11 @@ struct oLog {
 
   FILE* file;
 
-  void (*Log)(oLog* log, char* message, char* context);
+  void (*Log)(oLog* log, char* message, const char* context, enum LogLevel);
   void (*SetLevel)(oLog* self, enum LogLevel);
   void (*CloseLogs)(oLog* self);
 };
 
 oLog* InitLog(void);
 void Uninplemented(const char*);
+void PrintData(int* data, int size);
