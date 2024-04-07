@@ -11,7 +11,6 @@ void ResizeDatabase(Obase* O) {
 
   O->database = tmp;
   printf("Free tmp\n");
-  free(tmp);
 
   O->size *= 2;
   printf("New size is %d\n", O->size);

@@ -45,19 +45,20 @@ int main(int argc, char** argv) {
   O->logs->Log(O->logs, "Running GTD", __func__, WARN);
   O->GenerateTestData(O, O->dataSize, O->dataCeiling);
   
+  
   O->logs->Log(O->logs, "Running OlyticsWrapper", __func__, WARN);
   int* bubbleData = O->GetTestData(O);
   O->OlyticsWrapper(O, bubble, bubbleData, O->dataSize);
   // PrintData(bubbleData, O->dataSize);
   free(bubbleData);
-
+  
   O->logs->Log(O->logs, "Running OlyticsWrapper for the second time", __func__, WARN);
   int* bubbleDataTwo = O->GetTestData(O);
   PrintData(bubbleDataTwo, O->dataSize);
   O->OlyticsWrapper(O, bubble, bubbleDataTwo, O->dataSize);
   // PrintData(bubbleData, O->dataSize);
   free(bubbleDataTwo);
-  
+
   O->ProbeDataByIndex(O, 0);
   O->ProbeDataByIndex(O, 1);
   O->logs->CloseLogs(O->logs);

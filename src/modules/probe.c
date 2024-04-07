@@ -29,12 +29,13 @@ void RegisterData(Probe *probe, int* ops, int* comps, int* swaps) {
 }
 
 void ProbeData(Probe *probe) {
-  printf("Results Stores in Probe %d\n", probe->id);
+  printf("\n\nResults Stores in Probe %d\n", probe->id);
   printf("Program Executed in: %f seconds\n", probe->executionTime);
   printf("%d Comparissons were done\n", probe->comparissons);
   printf("%d Swaps were done\n", probe->swaps);
   printf("%d Operations were done\n\n", probe->operations);
 }
+
 Probe* NewProbe() {
   Probe* p = (Probe*)calloc(1, sizeof(Probe));
   *p = (Probe) {

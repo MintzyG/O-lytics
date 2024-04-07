@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
-
 void* OlyticsWrapper(OlyticsInstance* O, void* (*function)(void* ptr, int size, int* cmp, int* swp, int* ops), void* data, int size) {
   O->logs->Log(O->logs, "Creating Probe", __func__, TRACE);
   Probe* P = O->NewProbe();
